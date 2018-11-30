@@ -20,7 +20,5 @@
     "url": "https://github.com/booksftw/barchart_prep_stretch/issues"
   },
   "homepage": "https://github.com/booksftw/barchart_prep_stretch#readme",
-  "dependencies": {
-    "jquery": "^3.3.1"
-  }
+  "dependencies": {}
 }
