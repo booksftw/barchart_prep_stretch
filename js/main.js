@@ -6,3 +6,5 @@ function myFunc(str){
   var bar = document.createElement("bar");
   document.body.appendChild(bar);
 }
+
+//FUCK YEAH playgorund
