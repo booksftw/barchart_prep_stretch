@@ -6,12 +6,30 @@
 //   var bar = document.createElement("bar");
 //   document.body.appendChild(bar);
 // }
+
+// [module_require_name].bar.create()
+
+// const bar = require('./bar-module');
+
+
 function myFunc() {
+
+  function bar(name, barValue) {
+    this.firstName = first;
+    this.varValue  = barValue;
+  }
+
+  function drawBarChart(dataARRAY, optionsOBJECT, elementHTMLSELECTOR ){
+
+  }
+
+  // function drawBarChart (data, options, element){}
+
   $(document).ready(function() {
 
     $('h1').css('background-color', 'blue');
 
-    $('body').html('<div class="bar"></div>');
+    $('#mainContainer').append('<div class="bar"></div>');
 
   });
 }

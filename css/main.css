@@ -24,3 +24,7 @@ div.bar{
   top:0;
   display:inline-block;
 }
+
+#form3 {
+  display:none;
+}

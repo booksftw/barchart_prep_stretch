@@ -8,14 +8,48 @@
   </head>
   <body>
   <h1>Hello</h1>
+
+  <div id="barFormContainer">
+
+    <form id="form1">
+      How many bars?<br>
+      <input type="number" name="barAmount" value="s"><br>
+      <button type="button" onclick="onForm1Submit()">Enter</button>
+    </form>
+
+    <!--<form action="/action_page.php">-->
+      <!--First name:<br>-->
+      <!--<input type="text" name="firstname" value="Mickey">-->
+      <!--<br>-->
+      <!--Last name:<br>-->
+      <!--<input type="text" name="lastname" value="Mouse">-->
+      <!--<br><br>-->
+      <!--<input type="submit" value="Submit">-->
+    <!--</form>-->
+
+
+    <!--<form id="form2">-->
+      <!--Enter Values by Bar: <br>-->
+      <!--<p>DYNAMIC GENERATE THIS FOR EACH BAR</p>-->
+      <!--<input type="number" name="bar">-->
+    <!--</form>-->
+
+    <form id="form3">
+      Update Bar Configurations: <br>
+      <p> SET UP BAR Configurations</p>
+    </form>
+  </div>
+
   <div id="mainContainer">
     <div class="bar"> </div>
 
   </div>
-  <button onclick="myFunc('howdy')">Click me</button>
+  <button onclick="myFunc('howdy')">Add bar</button>
   </body>
 
   <footer>
+    <script src="js/bar-module.js"></script>
+    <script src="js/barForm.js"></script>
      <script src="js/main.js"></script>
   </footer>
 </html>
