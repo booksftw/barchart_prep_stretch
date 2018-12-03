@@ -17,6 +17,12 @@ form1Data = {
   amount:0
 }
 
+form2Data = [];
+
+// Key maps to Bar #
+form3Data = [];
+
+
 //Form Start
 //
 //
@@ -41,16 +47,75 @@ function onForm2Submit() {
   $(document).ready(function() {
     var form2Input = $('#form2 input');
     console.log(form2Input);
-    var barValue = [];
+
 
     for (var i = 0; i < form2Input.length ; i++) {
       var inputValue = form2Input[i].value;
-      barValue.push(form2Input);
+      form2Data.push(inputValue);
+      console.log('inserting into form2 data');
     }
 
-    // form2Inputs.forEach( (input) => {
-    //   console.log(input.value);
-    // });
+    //Hide form2 and create new one
+    $('#form2').css('display','none');
+    console.log('creating form 3 this many bars', form1Data.amount);
+    createForm('form3', form1Data.amount)
+  });
+}
+
+function onForm3Submit() {
+  console.log('form 3 submit');
+  $(document).ready(function() {
+
+    ///
+    ///
+    /// Where did I leave off ?
+    /// You're looping the input fields on form3 and it's not pushing into form 3 object enough
+    /// once you have it stored in the form3Data object you can use it for your bar chart
+    ///
+    // A light reminder that you still need to create form 4 and 5 and maybe hide the chart until the end.
+
+    // Make this dynamic after
+    const form3InputsLength = 4;
+
+    var form3Inputs = $('#form3 input');
+    var form3DataObj = {};
+
+    for (var i = 0; i < FIXMEHERE_SADHKSADJKJHDSA ; i++) {
+      // Insert form3 values into form 3 data object
+      var form3InputBarColour;
+      var form3InputLabelColour;
+      var form3InputSpacing;
+      //var form3InputChartAxes Disabled. Figure out what it is and activate it
+
+      var el = form3Inputs[i];
+      console.log(el ,' INPUTS');
+
+      if (el.name ==='barColour'){
+        console.log(el.name, el.value);
+        form3DataObj.barColour = el.value;
+      }
+
+      if (el.name === 'labelColour') {
+        console.log(el.name, el.value);
+        form3DataObj.labelColour = el.value;
+      }
+
+      if (el.name === 'barSpacing') {
+        console.log(el.name, el.value);
+        form3DataObj.barSpacing = el.value;
+      }
+
+      form3Data.push(form3DataObj);
+      console.log(form3Data, 'form 3 data');
+
+      // cont
+    }
+
+    //Hide form2 and create new one
+    //TEMP DISABLED
+    // $('#form3').css('display','none');
+
+    createForm('form4', form1Data.amount)
   });
 }
 
@@ -65,8 +130,9 @@ function createForm(name, args) {
 
     // Open tag
     $('#barFormContainer').html(`
+      <div id="form2">
       <p> Enter Values </p>
-      <form id="form2">
+      <form>
     `)
     // middle
     for (let i = 0; i < amountOfBars; i++) {
@@ -83,8 +149,56 @@ function createForm(name, args) {
     $('#form2').append(`
      <button type="button" onclick="onForm2Submit()">Submit</button>
      </form>
+     </div>
      `)
+  }// close form 2
 
+  if (name === 'form3') {
+    $('#form3').css('display', 'inline-block');
+
+    let amountOfBars = args;
+    // Generate this many bars
+    console.log(amountOfBars, 'Form 3 mount');
+
+    // Open tag
+    $('#barFormContainer').html(`
+      <div id="form3">
+      <p> Enter Configuration </p>
+      <form>
+    `)
+    // middle
+    for (let i = 0; i < amountOfBars; i++) {
+      // Dynamically create second form
+      $('#form3').append(`
+ 
+        <ul>
+          <p><strong>Bar ${i}</strong></p>
+          <li>
+            Bar Colour:
+            <input type="text" class=bar${i} name="barColour" placeholder="black" value="black">
+          </li>
+           <li>
+             Label Colour:
+            <input type="text" class=bar${i} name="labelColour" placeholder="green" value="green">
+          </li>
+          <li>            
+            Spacing:
+            <input type="number" class=bar${i} name="barSpacing" placeholder="10" value="10">
+          </li>
+          <li>
+            Chart Axes????? Ask about this
+            <input type="text">
+          </li>
+        </ul>
+    `);
+    }
+
+    // Close tag
+    $('#form3').append(`
+     <button type="button" onclick="onForm3Submit()">Submit</button>
+     </form>
+     </div>
+     `)
   }
 }
 
@@ -101,6 +215,7 @@ function drawBarChart(dataARRAY, optionsOBJECT, elementHTMLSELECTOR ){
 
 }
 
+// sample maybe not use this factory
 function Bar(name, barValue) {
   this.name = name;
   this.barValue  = barValue;
@@ -124,9 +239,17 @@ function testAddBarGraph() {
   //Static inserting in
   $(document).ready(function() {
 
-    var i = 1;
+
+    for (let i = 0; i < form1Data.amount; i++) {
+      console.log('creating this many >', form1Data.amount);
+      $('#mainContainer').append(
+        `
+          <div style="background-color:black; width: 300px; height:50px; margin-bottom: 15px" class="bar${i} barEl"></div>
+        `);
+    }
+
     $('h1').css('background-color', 'blue');
-    $('#mainContainer').append(`<div class="bar${i}"></div>`);
+
 
   });
 }

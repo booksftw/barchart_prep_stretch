@@ -25,6 +25,13 @@ div.bar{
   display:inline-block;
 }
 
-#form3 {
-  display:none;
+.barEl {
+  background-color: hotpink;
+  width: 200px;
+  height: 10px;
+  margin-bottom:10px;
+}
+
+p{
+  display:inline;
 }
