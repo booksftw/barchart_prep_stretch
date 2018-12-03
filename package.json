@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "prep course strech project",
   "devDependencies": {
+    "babel": "^6.23.0",
     "eslint": "^3.19.0",
     "eslint-config-lighthouselabs": "github:lighthouse-labs/eslint-config-lighthouselabs"
   },
