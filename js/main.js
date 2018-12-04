@@ -30,7 +30,7 @@ form3Data = [];
 //
 //
 function onForm1Submit() {
-  $(document).ready(function() {
+
 
     var amountOfBars = $('#form1 input')[0].value;
 
@@ -39,12 +39,10 @@ function onForm1Submit() {
 
     form1Data.amount = amountOfBars;
     createForm('form2', amountOfBars);
-  });
 }
 
 function onForm2Submit() {
   console.log('form 2 submit');
-  $(document).ready(function() {
     var form2Input = $('#form2 input');
     console.log(form2Input);
 
@@ -59,12 +57,10 @@ function onForm2Submit() {
     $('#form2').css('display','none');
     console.log('creating form 3 this many bars', form1Data.amount);
     createForm('form3', form1Data.amount)
-  });
 }
 
 function onForm3Submit() {
   console.log('form 3 submit');
-  $(document).ready(function() {
 
     ///
     ///
@@ -80,7 +76,7 @@ function onForm3Submit() {
     var form3Inputs = $('#form3 input');
     var form3DataObj = {};
 
-    for (var i = 0; i < FIXMEHERE_SADHKSADJKJHDSA ; i++) {
+    for (var i = 0; i < FIXMEHERE_ ; i++) {
       // Insert form3 values into form 3 data object
       var form3InputBarColour;
       var form3InputLabelColour;
@@ -116,60 +112,70 @@ function onForm3Submit() {
     // $('#form3').css('display','none');
 
     createForm('form4', form1Data.amount)
-  });
 }
 
-function createForm(name, args) {
+// Instead form1,2,3, name variables based functionality.
+function createAmountForm() {
 
-  if (name === 'form2') {
-    $('#form2').css('display', 'inline-block');
+  $('#barFormContainer').html(`
+      <form id="form1">
+         How many bars?<br>
+         <input type="number" name="barAmount" value="s"><br>
+         <button type="button" onclick="onForm1Submit()">Enter</button>
+      </form>
+  `)
+  console.log('Generating the amount form');
+}
 
-    let amountOfBars = args;
-    // Generate this many bars
-    console.log(amountOfBars, 'generate this many bars for form');
+function createValuesForm() {
+  $('#form2').css('display', 'inline-block');
 
-    // Open tag
-    $('#barFormContainer').html(`
+  let amountOfBars = args;
+  // Generate this many bars
+  console.log(amountOfBars, 'generate this many bars for form');
+
+  // Open tag
+  $('#barFormContainer').html(`
       <div id="form2">
       <p> Enter Values </p>
       <form>
     `)
-    // middle
-    for (let i = 0; i < amountOfBars; i++) {
-      // Dynamically create second form
-      $('#form2').append(`
+  // middle
+  for (let i = 0; i < amountOfBars; i++) {
+    // Dynamically create second form
+    $('#form2').append(`
      
         <!--Enter Values by Bar: <br>-->
         bar ${i}:
         <input type="number" name="bar">
     `);
-    }
+  }
 
-    // Close tag
-    $('#form2').append(`
+  // Close tag
+  $('#form2').append(`
      <button type="button" onclick="onForm2Submit()">Submit</button>
      </form>
      </div>
      `)
-  }// close form 2
+}
 
-  if (name === 'form3') {
-    $('#form3').css('display', 'inline-block');
+function createConfigForm() {
+  $('#form3').css('display', 'inline-block');
 
-    let amountOfBars = args;
-    // Generate this many bars
-    console.log(amountOfBars, 'Form 3 mount');
+  let amountOfBars = args;
+  // Generate this many bars
+  console.log(amountOfBars, 'Form 3 mount');
 
-    // Open tag
-    $('#barFormContainer').html(`
+  // Open tag
+  $('#barFormContainer').html(`
       <div id="form3">
       <p> Enter Configuration </p>
       <form>
     `)
-    // middle
-    for (let i = 0; i < amountOfBars; i++) {
-      // Dynamically create second form
-      $('#form3').append(`
+  // middle
+  for (let i = 0; i < amountOfBars; i++) {
+    // Dynamically create second form
+    $('#form3').append(`
  
         <ul>
           <p><strong>Bar ${i}</strong></p>
@@ -191,14 +197,26 @@ function createForm(name, args) {
           </li>
         </ul>
     `);
-    }
+  }
 
-    // Close tag
-    $('#form3').append(`
+  // Close tag
+  $('#form3').append(`
      <button type="button" onclick="onForm3Submit()">Submit</button>
      </form>
      </div>
      `)
+}
+
+function createForm(name, args) {
+
+  // Create functions instead of these conditions
+  //
+  if (name === 'form2') {
+    createAmountForm();
+  }// close form 2
+
+  if (name === 'form3') {
+    createValuesForm();
   }
 }
 
@@ -237,11 +255,10 @@ function testAddBarGraph() {
 
 
   //Static inserting in
-  $(document).ready(function() {
-
 
     for (let i = 0; i < form1Data.amount; i++) {
       console.log('creating this many >', form1Data.amount);
+      console.log($('#mainContainer'))
       $('#mainContainer').append(
         `
           <div style="background-color:black; width: 300px; height:50px; margin-bottom: 15px" class="bar${i} barEl"></div>
@@ -250,8 +267,12 @@ function testAddBarGraph() {
 
     $('h1').css('background-color', 'blue');
 
-
-  });
 }
+
+$(function() {
+  testAddBarGraph()
+})
+
+createAmountForm();
 
 
