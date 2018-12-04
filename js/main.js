@@ -20,18 +20,27 @@ form1Data = {
 // Values
 form2Data = [];
 
-// Configs
+// Configs / Options
 var form3Data = {};
 
 // Element Selector
-var form4Data = 'div#barFormContainer';
+var form4Data = '#mainContainer';
 
-//Form Start
-//
-//
-//
-//
-//
+function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
+  console.log('drawing bar chart');
+
+  for (let i = 0; i < form1Data.amountOfBars; i++) {
+    var barValue = dataArray[i];
+    var barWidth = dataArray[i] * 100;
+    var barHeight = form1Data.amountOfBars * 10;
+    console.log(barWidth);
+    $(elementHtmlSelector).append(`
+      <div style="background-color:black; width: ${barWidth}; height:${barHeight}; margin-bottom: 15px" class="bar${i} barEl"><p>Value=${barValue}</p></div>
+    `);
+  }
+}
+
+
 function onForm1Submit() {
 
     var amountOfBars = jQuery('form#form1 input')[0].value;
@@ -105,14 +114,19 @@ function onForm3Submit() {
 
 function onForm4Submit(){
 
-  var htmlElementSelector = jQuery('input')[0].value
+  var htmlElementSelector = jQuery('input')[0].value;
   form4Data = htmlElementSelector;
 
   // //Hide form2 and create new one
   $('#form4').css('display','none');
 
   //Call function to make chart
+  console.log("HERE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+  console.log(form2Data, form3Data, form4Data);
+  drawBarChart(form2Data, form3Data, form4Data);
 }
+
+
 
 // Instead form1,2,3, name variables based functionality.
 function createAmountForm() {
@@ -210,7 +224,7 @@ function createHtmlElementForm(){
   $('#barFormContainer').html(`
       <form id="form4">
          Which HTML Element do you want to inser this into?<br>
-         <input type="text" name="htmlElement" value="div#barFormContainer" placeholder="div#barFormContainer"><br>
+         <input type="text" name="htmlElement" value="#mainContainer" placeholder="#mainContainer"><br>
          <button type="button" onclick="onForm4Submit()">Make my chart!</button>
       </form>
   `);
@@ -241,11 +255,8 @@ function createForm(name, args) {
 
 
 
-// Get Data from barForm.js and call this function
-// In the mean time make dummy data to test.
-function drawBarChart(dataARRAY, optionsOBJECT, elementHTMLSELECTOR ){
 
-}
+
 
 // sample maybe not use this factory
 function Bar(name, barValue) {
