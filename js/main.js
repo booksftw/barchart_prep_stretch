@@ -13,15 +13,18 @@
 ///
 //
 
+//Amount of bars
 form1Data = {
-  amount:0
-}
-
+  amountOfBars:0
+};
+// Values
 form2Data = [];
 
-// Key maps to Bar #
-form3Data = [];
+// Configs
+var form3Data = {};
 
+// Element Selector
+var form4Data = 'div#barFormContainer';
 
 //Form Start
 //
@@ -31,11 +34,12 @@ form3Data = [];
 //
 function onForm1Submit() {
 
-
-    var amountOfBars = $('#form1 input')[0].value;
+    var amountOfBars = jQuery('form#form1 input')[0].value;
+    form1Data.amountOfBars = amountOfBars;
+    console.log(amountOfBars, 'FORM ONE SUBMIT');
 
     // Hide first form and create the next one
-    $('#form1').css('display', 'none');
+    $('form#form1').css('display', 'none');
 
     form1Data.amount = amountOfBars;
     createForm('form2', amountOfBars);
@@ -43,6 +47,7 @@ function onForm1Submit() {
 
 function onForm2Submit() {
   console.log('form 2 submit');
+
     var form2Input = $('#form2 input');
     console.log(form2Input);
 
@@ -61,57 +66,52 @@ function onForm2Submit() {
 
 function onForm3Submit() {
   console.log('form 3 submit');
-
-    ///
-    ///
-    /// Where did I leave off ?
-    /// You're looping the input fields on form3 and it's not pushing into form 3 object enough
-    /// once you have it stored in the form3Data object you can use it for your bar chart
-    ///
     // A light reminder that you still need to create form 4 and 5 and maybe hide the chart until the end.
 
-    // Make this dynamic after
-    const form3InputsLength = 4;
+    var barListItems = jQuery('#form3 li input');
+    var barListItemsLength= barListItems.length;
 
-    var form3Inputs = $('#form3 input');
-    var form3DataObj = {};
+    // Preset the object with input class as ids
+  for(i=0; i< barListItems.length; i++) {
+    var el = barListItems[i];
+    form3Data[el.className] = {};
+    console.log(form3Data, 'form3 data');
+  }
+  for(i=0; i< barListItems.length; i++) {
+    var el = barListItems[i];
+    var propertyName = el.name;
+    var propertyValue = el.value;
 
-    for (var i = 0; i < FIXMEHERE_ ; i++) {
-      // Insert form3 values into form 3 data object
-      var form3InputBarColour;
-      var form3InputLabelColour;
-      var form3InputSpacing;
-      //var form3InputChartAxes Disabled. Figure out what it is and activate it
-
-      var el = form3Inputs[i];
-      console.log(el ,' INPUTS');
-
+    console.log(el.className, el.name, el.value);
       if (el.name ==='barColour'){
-        console.log(el.name, el.value);
-        form3DataObj.barColour = el.value;
+        form3Data[el.className][propertyName] = propertyValue;
       }
 
       if (el.name === 'labelColour') {
-        console.log(el.name, el.value);
-        form3DataObj.labelColour = el.value;
+        form3Data[el.className][propertyName] = propertyValue;
       }
 
       if (el.name === 'barSpacing') {
-        console.log(el.name, el.value);
-        form3DataObj.barSpacing = el.value;
+        form3Data[el.className][propertyName] = propertyValue;
       }
+      console.log(form3Data, 'form3Data');
 
-      form3Data.push(form3DataObj);
-      console.log(form3Data, 'form 3 data');
-
-      // cont
-    }
-
+  }
     //Hide form2 and create new one
-    //TEMP DISABLED
-    // $('#form3').css('display','none');
+    $('#form3').css('display','none');
 
     createForm('form4', form1Data.amount)
+}
+
+function onForm4Submit(){
+
+  var htmlElementSelector = jQuery('input')[0].value
+  form4Data = htmlElementSelector;
+
+  // //Hide form2 and create new one
+  $('#form4').css('display','none');
+
+  //Call function to make chart
 }
 
 // Instead form1,2,3, name variables based functionality.
@@ -123,16 +123,14 @@ function createAmountForm() {
          <input type="number" name="barAmount" value="s"><br>
          <button type="button" onclick="onForm1Submit()">Enter</button>
       </form>
-  `)
+  `);
   console.log('Generating the amount form');
 }
 
-function createValuesForm() {
-  $('#form2').css('display', 'inline-block');
-
+function createValuesForm(args) {
   let amountOfBars = args;
   // Generate this many bars
-  console.log(amountOfBars, 'generate this many bars for form');
+  console.log(amountOfBars, 'generate this many bars for VALUES FORM');
 
   // Open tag
   $('#barFormContainer').html(`
@@ -149,6 +147,8 @@ function createValuesForm() {
         bar ${i}:
         <input type="number" name="bar">
     `);
+
+    $('#form2').css('display', 'inline-block');
   }
 
   // Close tag
@@ -159,7 +159,7 @@ function createValuesForm() {
      `)
 }
 
-function createConfigForm() {
+function createConfigForm(args) {
   $('#form3').css('display', 'inline-block');
 
   let amountOfBars = args;
@@ -171,13 +171,13 @@ function createConfigForm() {
       <div id="form3">
       <p> Enter Configuration </p>
       <form>
-    `)
+    `);
   // middle
   for (let i = 0; i < amountOfBars; i++) {
     // Dynamically create second form
     $('#form3').append(`
  
-        <ul>
+        <ul id=bar${i}>
           <p><strong>Bar ${i}</strong></p>
           <li>
             Bar Colour:
@@ -198,7 +198,6 @@ function createConfigForm() {
         </ul>
     `);
   }
-
   // Close tag
   $('#form3').append(`
      <button type="button" onclick="onForm3Submit()">Submit</button>
@@ -207,17 +206,32 @@ function createConfigForm() {
      `)
 }
 
-function createForm(name, args) {
+function createHtmlElementForm(){
+  $('#barFormContainer').html(`
+      <form id="form4">
+         Which HTML Element do you want to inser this into?<br>
+         <input type="text" name="htmlElement" value="div#barFormContainer" placeholder="div#barFormContainer"><br>
+         <button type="button" onclick="onForm4Submit()">Make my chart!</button>
+      </form>
+  `);
+  console.log('Generating the amount form');
+}
 
+function createForm(name, args) {
   // Create functions instead of these conditions
   //
   if (name === 'form2') {
-    createAmountForm();
+    createValuesForm(args);
   }// close form 2
 
   if (name === 'form3') {
-    createValuesForm();
+    createConfigForm(args);
   }
+
+  if (name === 'form4') {
+    createHtmlElementForm();
+  }
+
 }
 
 // FORM END
@@ -250,7 +264,7 @@ function testAddBarGraph() {
   // This is how you dynamically set up bar creation
   // You may need to process it before inserting into DOM
   // var bar1 = new Bar('test', 10);
-  
+
   console.log('test add', form1Data.amount);
 
 
@@ -271,8 +285,11 @@ function testAddBarGraph() {
 
 $(function() {
   testAddBarGraph()
-})
+});
 
-createAmountForm();
+function onStart(){
+  createAmountForm();
+}
+
 
 
