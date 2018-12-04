@@ -7,7 +7,7 @@ h1 {
 div#mainContainer{
   background-color:whitesmoke;
   border: 1px solid black;
-  opacity: 0.2;
+ /*opacity: 0.2;*/
   width:100%;
   height: 620px;
   z-index: -1000;

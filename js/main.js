@@ -33,9 +33,13 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
     var barValue = dataArray[i];
     var barWidth = dataArray[i] * 100;
     var barHeight = form1Data.amountOfBars * 10;
+    var barSpacing = form3Data['bar'+i].barSpacing;
+    var barColour = form3Data['bar'+i].barColour;
+    var labelColour = form3Data['bar'+i].labelColour;
+
     console.log(barWidth);
     $(elementHtmlSelector).append(`
-      <div style="background-color:black; width: ${barWidth}; height:${barHeight}; margin-bottom: 15px" class="bar${i} barEl"><p>Value=${barValue}</p></div>
+      <div style="background-color:${barColour}; width: ${barWidth}; height:${barHeight}; margin-top: ${barSpacing}" class="bar${i} barEl"><p>Value=${barValue}</p></div>
     `);
   }
 }
@@ -270,33 +274,31 @@ function Bar(name, barValue) {
   this.barTitle = '[Insert Name Here]';
 }
 
-function testAddBarGraph() {
+// function testAddBarGraph() {
+//
+//   // This is how you dynamically set up bar creation
+//   // You may need to process it before inserting into DOM
+//   // var bar1 = new Bar('test', 10);
+//
+//   console.log('test add', form1Data.amount);
+//
+//
+//   //Static inserting in
+//
+//     for (let i = 0; i < form1Data.amount; i++) {
+//       console.log('creating this many >', form1Data.amount);
+//       console.log($('#mainContainer'))
+//       $('#mainContainer').append(
+//         `
+//           <div style="background-color:black; width: 300px; height:50px; margin-bottom: 15px" class="bar${i} barEl"></div>
+//         `);
+//     }
+//
+// }
 
-  // This is how you dynamically set up bar creation
-  // You may need to process it before inserting into DOM
-  // var bar1 = new Bar('test', 10);
-
-  console.log('test add', form1Data.amount);
-
-
-  //Static inserting in
-
-    for (let i = 0; i < form1Data.amount; i++) {
-      console.log('creating this many >', form1Data.amount);
-      console.log($('#mainContainer'))
-      $('#mainContainer').append(
-        `
-          <div style="background-color:black; width: 300px; height:50px; margin-bottom: 15px" class="bar${i} barEl"></div>
-        `);
-    }
-
-    $('h1').css('background-color', 'blue');
-
-}
-
-$(function() {
-  testAddBarGraph()
-});
+// $(function() {
+//   // testAddBarGraph()
+// });
 
 function onStart(){
   createAmountForm();
