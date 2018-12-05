@@ -50,10 +50,12 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
     // var labelPosition = form3Data['bar'+i].labelPosition;
 
     $(elementHtmlSelector).append(`
-      <div style="background-color:${barColour}; width: ${barWidth}; height:${barHeight}; margin-top: ${barSpacing}; transition: width 2s; " class="bar${i} barEl">
+        <div style="background-color:${barColour}; height:${barHeight}; margin-top: ${barSpacing}; transition: width 2s; " class="bar${i} barEl">
         <p class="labelTag" style="background-color: ${labelColour}; top: ${labelTopValue}%">Value=${barValue}</p>
        </div>
     `);
+
+    jQuery(`.bar${i}`).css('width', barWidth);
   }
 }
 

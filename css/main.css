@@ -31,6 +31,7 @@ div.bar{
   background-color: hotpink;
   margin-bottom:10px;
   transition-property: width;
+  width:10px;
   transition-duration: 2s;
 }
 
