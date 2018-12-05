@@ -29,9 +29,9 @@ div.bar{
 
 .barEl {
   background-color: hotpink;
-  width: 200px;
-  height: 10px;
   margin-bottom:10px;
+  transition-property: width;
+  transition-duration: 2s;
 }
 
 p{

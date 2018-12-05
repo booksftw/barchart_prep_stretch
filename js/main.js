@@ -10,7 +10,6 @@
 // Refactor all this into one object called state
 //
 //
-
 //Amount of bars
 form1Data = {
   amountOfBars:0
