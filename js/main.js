@@ -50,12 +50,31 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
     // var labelPosition = form3Data['bar'+i].labelPosition;
 
     $(elementHtmlSelector).append(`
-        <div style="background-color:${barColour}; height:${barHeight}; margin-top: ${barSpacing}; transition: width 2s; " class="bar${i} barEl">
+        <div style="background-color:${barColour}; height:${barHeight}; margin-top: ${barSpacing}; " class="bar${i} barEl">
         <p class="labelTag" style="background-color: ${labelColour}; top: ${labelTopValue}%">Value=${barValue}</p>
        </div>
     `);
 
+    // Change width after so that the css transition effect will take effect
     jQuery(`.bar${i}`).css('width', barWidth);
+
+    // Media Query hack
+    if (form1Data.amountOfBars >= 7){
+      jQuery('#mainContainer').css('height', '650px');
+    }
+    if(form1Data.amountOfBars >= 11) {
+      jQuery('#mainContainer').css('height', '2000px');
+    }
+    if(form1Data.amountOfBars >= 25) {
+      jQuery('#mainContainer').css('height', '8000px');
+    }
+    if(form1Data.amountOfBars >= 35) {
+      jQuery('#mainContainer').css('height', '15000px');
+    }
+    if(form1Data.amountOfBars >= 50) {
+      jQuery('#mainContainer').css('height', '25000px');
+    }
+
   }
 }
 
@@ -172,7 +191,7 @@ function onForm4Submit(){
 
   // //Hide form2 and create new one
   $('#form4').css('display','none');
-
+  $('#barFormContainer').append(`<button > <a href="/">Reset</a>  </button>`)
   //Call function to make chart
   drawBarChart(form2Data, form3Data, form4Data);
 }
