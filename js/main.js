@@ -96,6 +96,7 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
       $(elementHtmlSelector).append(`
           <div style="background-color:${barColour}; width:${barWidth}; margin-right: ${barSpacing}; " class="bar${i} barEl">
           <!-- INSERT TICKS INTO THE BAR -->
+          <hr class="hr">
          </div>
       `);
 

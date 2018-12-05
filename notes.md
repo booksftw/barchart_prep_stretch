@@ -31,3 +31,8 @@ This should also support all the features of the single bar chart, including
 
 Customizable bar colours, per value
 Customizable label colours
+
+---
+# App Future Improvements
+- Put limtis on configs
+- change some configs to select
