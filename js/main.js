@@ -20,7 +20,7 @@ form2Data = [];
 // Configs / Options
 var form3Data = {};
 
-var formChartAxis = 'x'; // defaault value
+var formChartAxis = 'chartX'; // defaault value
 
 // Element Selector
 var form4Data = '#mainContainer';
@@ -28,54 +28,101 @@ var form4Data = '#mainContainer';
 function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
 
   var barAxis = formChartAxis;
+  console.log(barAxis, 'barAxis');
   // IF X make a horizontal bar chart if Y make a vertical
 
-  for (let i = 0; i < form1Data.amountOfBars; i++) {
-    console.log('drawing bar chart');
-    console.log(dataArray);
-    var barValue = dataArray[i]; // needs to be updated to be more specific
-    var barWidth = dataArray[i] * 60;
-    var barHeight = form1Data.amountOfBars * 8;
-    var barSpacing = form3Data['bar'+i].barSpacing;
-    var barColour = form3Data['bar'+i].barColour;
-    var labelColour = form3Data['bar'+i].labelColour;
-    var labelPosValue = form3Data['bar'+i].labelPosition;
+  if (barAxis == 'chartX'){
+    for (let i = 0; i < form1Data.amountOfBars; i++) {
+      console.log('drawing bar X chart');
+      console.log(dataArray);
+      var barValue = dataArray[i]; // needs to be updated to be more specific
+      var barWidth = dataArray[i] * 60;
+      var barHeight = form1Data.amountOfBars * 8;
+      var barSpacing = form3Data['bar'+i].barSpacing;
+      var barColour = form3Data['bar'+i].barColour;
+      var labelColour = form3Data['bar'+i].labelColour;
+      var labelPosValue = form3Data['bar'+i].labelPosition;
 
+      var labelTopValue;
+      //  A more accurate approach is to grab the element figure out it's height and divide in half and full
+      if (labelPosValue === 'top') { labelTopValue = 0; }
+      else if (labelPosValue  === 'middle') { labelTopValue = 42 }
+      else if (labelPosValue === 'bottom') { labelTopValue = 84 }
+      // var labelPosition = form3Data['bar'+i].labelPosition;
 
-    var labelTopValue;
-    //  A more accurate approach is to grab the element figure out it's height and divide in half and full
-    if (labelPosValue === 'top') { labelTopValue = 0; }
-    else if (labelPosValue  === 'middle') { labelTopValue = 42 }
-    else if (labelPosValue === 'bottom') { labelTopValue = 84 }
-    // var labelPosition = form3Data['bar'+i].labelPosition;
-
-    $(elementHtmlSelector).append(`
+      $(elementHtmlSelector).append(`
         <div style="background-color:${barColour}; height:${barHeight}; margin-top: ${barSpacing}; " class="bar${i} barEl">
         <p class="labelTag" style="background-color: ${labelColour}; top: ${labelTopValue}%">Value=${barValue}</p>
        </div>
     `);
 
-    // Change width after so that the css transition effect will take effect
-    jQuery(`.bar${i}`).css('width', barWidth);
+      // Change width after so that the css transition effect will take effect
+      jQuery(`.bar${i}`).css('width', barWidth);
 
-    // Media Query hack
-    if (form1Data.amountOfBars >= 7){
-      jQuery('#mainContainer').css('height', '650px');
-    }
-    if(form1Data.amountOfBars >= 11) {
-      jQuery('#mainContainer').css('height', '2000px');
-    }
-    if(form1Data.amountOfBars >= 25) {
-      jQuery('#mainContainer').css('height', '8000px');
-    }
-    if(form1Data.amountOfBars >= 35) {
-      jQuery('#mainContainer').css('height', '15000px');
-    }
-    if(form1Data.amountOfBars >= 50) {
-      jQuery('#mainContainer').css('height', '25000px');
-    }
+      // Media Query hack
+          if (form1Data.amountOfBars >= 7){
+            jQuery('#mainContainer').css('height', '650px');
+          }
+          if(form1Data.amountOfBars >= 11) {
+            jQuery('#mainContainer').css('height', '2000px');
+          }
+          if(form1Data.amountOfBars >= 25) {
+            jQuery('#mainContainer').css('height', '8000px');
+          }
+          if(form1Data.amountOfBars >= 35) {
+            jQuery('#mainContainer').css('height', '15000px');
+          }
+          if(form1Data.amountOfBars >= 50) {
+            jQuery('#mainContainer').css('height', '25000px');
+          }
 
+    }
   }
+  else {
+    // Y Axis
+    for (let i = 0; i < form1Data.amountOfBars; i++) {
+
+      console.log('drawing bar chart');
+      console.log(dataArray);
+      var barValue = dataArray[i]; // needs to be updated to be more specific
+      var barWidth = 20//dataArray[i] * 600;
+      var barHeight = 150//form1Data.amountOfBars * 8;
+      var barSpacing = form3Data['bar' + i].barSpacing;
+      var barColour = form3Data['bar' + i].barColour;
+
+      // Include Ticks into the bar
+
+
+      $(elementHtmlSelector).append(`
+          <div style="background-color:${barColour}; width:${barWidth}; margin-right: ${barSpacing}; " class="bar${i} barEl">
+          <!-- INSERT TICKS INTO THE BAR -->
+         </div>
+      `);
+
+      jQuery('.barEl').css('display','inline-block');
+      // Change width after so that the css transition effect will take effect
+      jQuery(`.bar${i}`).css('height', barHeight);
+
+      // Media Query hack
+      if (form1Data.amountOfBars >= 7) {
+        jQuery('#mainContainer').css('height', '650px');
+      }
+      if (form1Data.amountOfBars >= 11) {
+        jQuery('#mainContainer').css('height', '2000px');
+      }
+      if (form1Data.amountOfBars >= 25) {
+        jQuery('#mainContainer').css('height', '8000px');
+      }
+      if (form1Data.amountOfBars >= 35) {
+        jQuery('#mainContainer').css('height', '15000px');
+      }
+      if (form1Data.amountOfBars >= 50) {
+        jQuery('#mainContainer').css('height', '25000px');
+      }
+    }
+  }
+
+
 }
 
 // Refactor drawBarChart by using this and passing it parameters
@@ -259,8 +306,6 @@ function createConfigForm(args) {
   for (let i = 0; i < amountOfBars; i++) {
     // Dynamically create second form
     $('#form3').append(`
-
-                  
         <ul id=bar${i}>
           <p><strong>Bar ${i}</strong></p>
           <li>

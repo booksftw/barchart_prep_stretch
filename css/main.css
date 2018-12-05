@@ -30,9 +30,11 @@ div.bar{
 .barEl {
   background-color: hotpink;
   margin-bottom:10px;
-  transition-property: width;
+  transition-property: width,height;
+  transition-duration: 3s;
   width:10px;
-  transition-duration: 5s;
+  height:5px;
+
 }
 
 p{
