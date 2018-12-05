@@ -12,6 +12,8 @@ div#mainContainer{
   height: 620px;
   z-index: -1000;
   position: relative;
+  -webkit-transition: width 2s; /* Safari */
+
 }
 
 div.bar{
@@ -34,7 +36,24 @@ div.bar{
 
 p{
   display:inline;
-  color: white;
   font-weight:bold;
   font-size:10px;
+}
+
+input#title{
+  border: none;
+  font-size: 40px;
+  color: #9d2dec;
+  width:380px;
+  margin-left: 40%;
+  margin-bottom: 52px;
+  margin-top: 25px;
+}
+
+p.labelTag {
+  position: relative;
+}
+
+#titleConfigIcon{
+  cursor: pointer;
 }

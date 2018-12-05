@@ -11,7 +11,12 @@
     <!--<script src="js/barForm.js"></script>-->
   </head>
   <body>
-  <h1>Hello</h1>
+
+  <input type="text" id="title" name="title" required
+         minlength="1" maxlength="18" size="10" placeholder="Title Me :-)">
+  <img id="titleConfigIcon" src="./assets/settings-icon.png" width="50" height="50" onclick="onTitleSettingsClick()">
+
+  <div id="titleConfigContainer"></div>
 
   <div id="barFormContainer">
   <button onclick="onStart()">Click me to start</button>
@@ -30,8 +35,6 @@
       <!--<br><br>-->
       <!--<input type="submit" value="Submit">-->
     <!--</form>-->
-
-
     <!--<form id="form2">-->
       <!--Enter Values by Bar: <br>-->
       <!--<p>DYNAMIC GENERATE THIS FOR EACH BAR</p>-->

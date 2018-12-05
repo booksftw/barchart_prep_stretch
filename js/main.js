@@ -6,11 +6,9 @@
 //   document.body.appendChild(bar);
 // }
 
-// [module_require_name].bar.create()
+
+// Refactor all this into one object called state
 //
-//
-//
-///
 //
 
 //Amount of bars
@@ -23,33 +21,82 @@ form2Data = [];
 // Configs / Options
 var form3Data = {};
 
+var formChartAxis = 'x'; // defaault value
+
 // Element Selector
 var form4Data = '#mainContainer';
 
 function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
-  console.log('drawing bar chart');
+
+  var barAxis = formChartAxis;
+  // IF X make a horizontal bar chart if Y make a vertical
 
   for (let i = 0; i < form1Data.amountOfBars; i++) {
-    var barValue = dataArray[i];
-    var barWidth = dataArray[i] * 100;
-    var barHeight = form1Data.amountOfBars * 10;
+    console.log('drawing bar chart');
+    console.log(dataArray);
+    var barValue = dataArray[i]; // needs to be updated to be more specific
+    var barWidth = dataArray[i] * 60;
+    var barHeight = form1Data.amountOfBars * 8;
     var barSpacing = form3Data['bar'+i].barSpacing;
     var barColour = form3Data['bar'+i].barColour;
     var labelColour = form3Data['bar'+i].labelColour;
+    var labelPosValue = form3Data['bar'+i].labelPosition;
 
-    console.log(barWidth);
+
+    var labelTopValue;
+    //  A more accurate approach is to grab the element figure out it's height and divide in half and full
+    if (labelPosValue === 'top') { labelTopValue = 0; }
+    else if (labelPosValue  === 'middle') { labelTopValue = 42 }
+    else if (labelPosValue === 'bottom') { labelTopValue = 84 }
+    // var labelPosition = form3Data['bar'+i].labelPosition;
+
     $(elementHtmlSelector).append(`
-      <div style="background-color:${barColour}; width: ${barWidth}; height:${barHeight}; margin-top: ${barSpacing}" class="bar${i} barEl"><p>Value=${barValue}</p></div>
+      <div style="background-color:${barColour}; width: ${barWidth}; height:${barHeight}; margin-top: ${barSpacing}; transition: width 2s; " class="bar${i} barEl">
+        <p class="labelTag" style="background-color: ${labelColour}; top: ${labelTopValue}%">Value=${barValue}</p>
+       </div>
     `);
   }
 }
 
+// Refactor drawBarChart by using this and passing it parameters
+function drawBar(){
+
+}
+
+function onUpdateTitle(){
+  // Change the title settings
+  var title = jQuery('input#title');
+  // css('font-size',10)
+  var newFontSize = jQuery('input#titleFontSize')[0].value;
+  var newFontColor = jQuery('input#titleFontColor')[0].value;
+
+  title = title.css('font-size', newFontSize).css('color', newFontColor);
+
+  $('#titleConfigIcon').css('display', 'inline-block');
+  //Remove the form
+  jQuery('#titleConfigContainer').css('display', 'none');
+}
+
+function onTitleSettingsClick(){
+
+  $('#titleConfigContainer').html(`
+      <form id="configureTitleForm">
+         Select your font size<br>
+         <input id="titleFontSize" type="number" name="titleFontSize" value="40" placeholder="40"><br>
+         Select your color<br>
+         <input id="titleFontColor" type="text" name="titleFontColor" value="purple" placeholder="purple"><br>
+         <button type="button" onclick="onUpdateTitle()">Update Title</button>
+      </form>
+  `);
+
+  $('#titleConfigIcon').css('display', 'none');
+  $('#titleConfigContainer').css('display','inline-block');
+}
 
 function onForm1Submit() {
 
     var amountOfBars = jQuery('form#form1 input')[0].value;
     form1Data.amountOfBars = amountOfBars;
-    console.log(amountOfBars, 'FORM ONE SUBMIT');
 
     // Hide first form and create the next one
     $('form#form1').css('display', 'none');
@@ -62,40 +109,35 @@ function onForm2Submit() {
   console.log('form 2 submit');
 
     var form2Input = $('#form2 input');
-    console.log(form2Input);
-
 
     for (var i = 0; i < form2Input.length ; i++) {
       var inputValue = form2Input[i].value;
       form2Data.push(inputValue);
-      console.log('inserting into form2 data');
     }
 
     //Hide form2 and create new one
     $('#form2').css('display','none');
-    console.log('creating form 3 this many bars', form1Data.amount);
     createForm('form3', form1Data.amount)
 }
 
 function onForm3Submit() {
   console.log('form 3 submit');
-    // A light reminder that you still need to create form 4 and 5 and maybe hide the chart until the end.
-
     var barListItems = jQuery('#form3 li input');
-    var barListItemsLength= barListItems.length;
+
+    //Get the axis
+   formChartAxis = jQuery('select')[0].value;
+
 
     // Preset the object with input class as ids
   for(i=0; i< barListItems.length; i++) {
     var el = barListItems[i];
     form3Data[el.className] = {};
-    console.log(form3Data, 'form3 data');
   }
   for(i=0; i< barListItems.length; i++) {
     var el = barListItems[i];
     var propertyName = el.name;
     var propertyValue = el.value;
 
-    console.log(el.className, el.name, el.value);
       if (el.name ==='barColour'){
         form3Data[el.className][propertyName] = propertyValue;
       }
@@ -105,6 +147,10 @@ function onForm3Submit() {
       }
 
       if (el.name === 'barSpacing') {
+        form3Data[el.className][propertyName] = propertyValue;
+      }
+
+      if (el.name === 'labelPosition') {
         form3Data[el.className][propertyName] = propertyValue;
       }
       console.log(form3Data, 'form3Data');
@@ -118,19 +164,17 @@ function onForm3Submit() {
 
 function onForm4Submit(){
 
-  var htmlElementSelector = jQuery('input')[0].value;
+  // var htmlElementSelector = jQuery('input')[0].value;
+  var htmlElementSelector = jQuery('#elementInput')[0].value;
   form4Data = htmlElementSelector;
+
 
   // //Hide form2 and create new one
   $('#form4').css('display','none');
 
   //Call function to make chart
-  console.log("HERE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-  console.log(form2Data, form3Data, form4Data);
   drawBarChart(form2Data, form3Data, form4Data);
 }
-
-
 
 // Instead form1,2,3, name variables based functionality.
 function createAmountForm() {
@@ -147,15 +191,13 @@ function createAmountForm() {
 
 function createValuesForm(args) {
   let amountOfBars = args;
-  // Generate this many bars
-  console.log(amountOfBars, 'generate this many bars for VALUES FORM');
 
   // Open tag
   $('#barFormContainer').html(`
       <div id="form2">
       <p> Enter Values </p>
       <form>
-    `)
+    `);
   // middle
   for (let i = 0; i < amountOfBars; i++) {
     // Dynamically create second form
@@ -163,7 +205,7 @@ function createValuesForm(args) {
      
         <!--Enter Values by Bar: <br>-->
         bar ${i}:
-        <input type="number" name="bar">
+        <input type="number" name="bar" placeholder="1" value =1>
     `);
 
     $('#form2').css('display', 'inline-block');
@@ -181,20 +223,24 @@ function createConfigForm(args) {
   $('#form3').css('display', 'inline-block');
 
   let amountOfBars = args;
-  // Generate this many bars
-  console.log(amountOfBars, 'Form 3 mount');
 
   // Open tag
   $('#barFormContainer').html(`
       <div id="form3">
       <p> Enter Configuration </p>
+        Choose your chart axis
+        <select id="chartAxis">
+          <option name="chartXAxis" value="chartX">chartX</option>
+          <option name="chartYAxis" value="chartY">chartY</option>
+        </select>
       <form>
     `);
   // middle
   for (let i = 0; i < amountOfBars; i++) {
     // Dynamically create second form
     $('#form3').append(`
- 
+
+                  
         <ul id=bar${i}>
           <p><strong>Bar ${i}</strong></p>
           <li>
@@ -209,9 +255,9 @@ function createConfigForm(args) {
             Spacing:
             <input type="number" class=bar${i} name="barSpacing" placeholder="10" value="10">
           </li>
-          <li>
-            Chart Axes????? Ask about this
-            <input type="text">
+          <li> 
+            Label Position:
+            <input type="text" name="labelPosition" placeholder="top" value="top" class="bar${i}">
           </li>
         </ul>
     `);
@@ -227,8 +273,8 @@ function createConfigForm(args) {
 function createHtmlElementForm(){
   $('#barFormContainer').html(`
       <form id="form4">
-         Which HTML Element do you want to inser this into?<br>
-         <input type="text" name="htmlElement" value="#mainContainer" placeholder="#mainContainer"><br>
+         Which HTML Element do you want to insert this into?<br>
+         <input type="text" name="htmlElement" id="elementInput" value="#mainContainer" placeholder="#mainContainer"><br>
          <button type="button" onclick="onForm4Submit()">Make my chart!</button>
       </form>
   `);
@@ -252,27 +298,17 @@ function createForm(name, args) {
 
 }
 
-// FORM END
-//
-//
-//
-
-
-
-
-
-
 // sample maybe not use this factory
-function Bar(name, barValue) {
-  this.name = name;
-  this.barValue  = barValue;
-  this.barWidth = 200;
-  this.barHeight = 100;
-  this.barColour = 'black';
-  this.barLabelColour = 'silver';
-  this.barMarginSpacing = 15;
-  this.barTitle = '[Insert Name Here]';
-}
+// function Bar(name, barValue) {
+//   this.name = name;
+//   this.barValue  = barValue;
+//   this.barWidth = 200;
+//   this.barHeight = 100;
+//   this.barColour = 'black';
+//   this.barLabelColour = 'silver';
+//   this.barMarginSpacing = 15;
+//   this.barTitle = '[Insert Name Here]';
+// }
 
 // function testAddBarGraph() {
 //

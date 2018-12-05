@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e480b2c5-4f71-4b29-a7fe-cfa4c3f0fdd8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,10 +22,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
+            <state relative-caret-position="380">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="31" />
               <folding>
-                <marker date="1543912948406" expanded="false" signature="478:1427" ph="..." />
+                <marker date="1543978326893" expanded="false" signature="751:1369" ph="..." />
+                <marker date="1543978326893" expanded="false" signature="1370:1698" ph="..." />
               </folding>
             </state>
           </provider>
@@ -31,17 +35,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="41" column="100" selection-start-line="41" selection-start-column="100" selection-end-line="41" selection-end-column="100" />
+            <state relative-caret-position="369">
+              <caret line="53" column="117" lean-forward="true" selection-start-line="53" selection-start-column="117" selection-end-line="53" selection-end-column="117" />
               <folding>
-                <element signature="n#!!block;n#onForm2Submit#0" />
-                <element signature="n#!!block;n#onForm3Submit#0" />
-                <element signature="n#!!block;n#createAmountForm#0" />
-                <element signature="n#!!block;n#createValuesForm#0" />
-                <element signature="n#!!block;n#createForm#0" />
-                <marker date="1543913901547" expanded="true" signature="2978:3051" ph="..." />
-                <marker date="1543913901547" expanded="true" signature="3215:3288" ph="..." />
-                <marker date="1543913901547" expanded="false" signature="6837:7478" ph="..." />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#1303#1579#0" />
+                <element signature="e#1606#1936#0" />
+                <element signature="e#1963#2997#0" />
+                <element signature="e#3361#3648#0" />
+                <element signature="e#3682#4272#0" />
+                <element signature="e#6130#6166#0" />
+                <marker date="1543981113786" expanded="true" signature="8225:9250" ph="..." />
+                <marker date="1543981113786" expanded="false" signature="8554:9250" ph="..." />
               </folding>
             </state>
           </provider>
@@ -50,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            <state relative-caret-position="286">
+              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -82,6 +89,8 @@
       <find>onForm1Submit</find>
       <find>opacity</find>
       <find>background</find>
+      <find>console.log</find>
+      <find>drawBarChart</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,10 +117,9 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="879" />
-    <option name="height" value="1087" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -123,12 +131,17 @@
         <subPane>
           <expand>
             <path>
-              <item name="barPrepStretch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="barPrepStretch" type="462c0819:PsiDirectoryNode" />
+              <item name="barChartPrepStretch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="barChartPrepStretch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="barPrepStretch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="barPrepStretch" type="462c0819:PsiDirectoryNode" />
+              <item name="barChartPrepStretch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="barChartPrepStretch" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="barChartPrepStretch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="barChartPrepStretch" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -152,7 +165,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -187,30 +200,33 @@
       <workItem from="1543871044666" duration="1756000" />
       <workItem from="1543900910974" duration="131000" />
       <workItem from="1543901401567" duration="556000" />
+      <workItem from="1543957084854" duration="1585000" />
+      <workItem from="1543963381795" duration="44000" />
+      <workItem from="1543963488519" duration="8811000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28941000" />
+    <option name="totallyTimeSpent" value="39884000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="879" height="1087" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2553419" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.122621566" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32903865" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.19724284" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.16343826" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -268,14 +284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notes.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.eslintrc.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -289,39 +297,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+    <entry file="file://$PROJECT_DIR$/notes.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
+        <state relative-caret-position="380">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="31" />
           <folding>
-            <marker date="1543912948406" expanded="false" signature="478:1427" ph="..." />
+            <marker date="1543978326893" expanded="false" signature="751:1369" ph="..." />
+            <marker date="1543978326893" expanded="false" signature="1370:1698" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="41" column="100" selection-start-line="41" selection-start-column="100" selection-end-line="41" selection-end-column="100" />
+        <state relative-caret-position="369">
+          <caret line="53" column="117" lean-forward="true" selection-start-line="53" selection-start-column="117" selection-end-line="53" selection-end-column="117" />
           <folding>
-            <element signature="n#!!block;n#onForm2Submit#0" />
-            <element signature="n#!!block;n#onForm3Submit#0" />
-            <element signature="n#!!block;n#createAmountForm#0" />
-            <element signature="n#!!block;n#createValuesForm#0" />
-            <element signature="n#!!block;n#createForm#0" />
-            <marker date="1543913901547" expanded="true" signature="2978:3051" ph="..." />
-            <marker date="1543913901547" expanded="true" signature="3215:3288" ph="..." />
-            <marker date="1543913901547" expanded="false" signature="6837:7478" ph="..." />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#1303#1579#0" />
+            <element signature="e#1606#1936#0" />
+            <element signature="e#1963#2997#0" />
+            <element signature="e#3361#3648#0" />
+            <element signature="e#3682#4272#0" />
+            <element signature="e#6130#6166#0" />
+            <marker date="1543981113786" expanded="true" signature="8225:9250" ph="..." />
+            <marker date="1543981113786" expanded="false" signature="8554:9250" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
