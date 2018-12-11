@@ -1,56 +1,31 @@
 <html>
-  <head>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+<head>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 
-  </head>
-  <body>
+</head>
+<body>
 
-  <input type="text" id="title" name="title" required
-         minlength="1" maxlength="18" size="10" placeholder="Title Me :-)">
-  <img id="titleConfigIcon" src="./assets/settings-icon.png" width="50" height="50" onclick="onTitleSettingsClick()">
+<input type="text" id="title" name="title" required
+       minlength="1" maxlength="18" size="10" placeholder="Title Me :-)">
+<img id="titleConfigIcon" src="./assets/settings-icon.png" width="50" height="50" onclick="onTitleSettingsClick()">
 
-  <div id="titleConfigContainer"></div>
+<div id="titleConfigContainer"></div>
 
-  <div id="barFormContainer">
+<div id="barFormContainer">
   <button onclick="onStart()">Click me to start</button>
-    <!--REPLACE ME WITH JAVASCRIPT - KEEP IT CONSISTENT-->
-    <!--<form id="form1">-->
-      <!--How many bars?<br>-->
-      <!--<input type="number" name="barAmount" value="s"><br>-->
-      <!--<button type="button" onclick="onForm1Submit()">Enter</button>-->
-    <!--</form>-->
-    <!--<form action="/action_page.php">-->
-      <!--First name:<br>-->
-      <!--<input type="text" name="firstname" value="Mickey">-->
-      <!--<br>-->
-      <!--Last name:<br>-->
-      <!--<input type="text" name="lastname" value="Mouse">-->
-      <!--<br><br>-->
-      <!--<input type="submit" value="Submit">-->
-    <!--</form>-->
-    <!--<form id="form2">-->
-      <!--Enter Values by Bar: <br>-->
-      <!--<p>DYNAMIC GENERATE THIS FOR EACH BAR</p>-->
-      <!--<input type="number" name="bar">-->
-    <!--</form>-->
+</div>
 
-    <!--<form id="form3">-->
-      <!--Update Bar Configurations: <br>-->
-      <!--<p> SET UP BAR Configurations</p>-->
-    <!--</form>-->
-  </div>
+<div id="mainContainer">
+  <!--static demo <div class="bar"> </div>-->
 
-  <div id="mainContainer">
-    <!--static demo <div class="bar"> </div>-->
-
-  </div>
-  <!--<button onclick="testAddBarGraph()">Add bar test with dummy data</button> debugging remove after dev-->
-  <footer></footer>
-  <script src="js/main.js"></script>
-  </body>
+</div>
+<!--<button onclick="testAddBarGraph()">Add bar test with dummy data</button> debugging remove after dev-->
+<footer></footer>
+<script src="js/main.js"></script>
+</body>
 </html>
 

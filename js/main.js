@@ -6,6 +6,19 @@
 //   document.body.appendChild(bar);
 // }
 
+/*
+  JS Destructuring Syntax
+  {amountOfBars, configs} = state
+  console.log(amountOfBars === state.amountOfBars);
+ */
+let state = {
+  amountOfBars: 0,
+  values: [],
+  configs: [],
+  formChartAxis: 'chartX', // Default
+  elementSelector: '#mainContainer'
+};
+
 
 // Refactor all this into one object called state
 //
@@ -60,25 +73,27 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
       jQuery(`.bar${i}`).css('width', barWidth);
 
       // Media Query hack
-          if (form1Data.amountOfBars >= 7){
-            jQuery('#mainContainer').css('height', '650px');
-          }
-          if(form1Data.amountOfBars >= 11) {
-            jQuery('#mainContainer').css('height', '2000px');
-          }
-          if(form1Data.amountOfBars >= 25) {
-            jQuery('#mainContainer').css('height', '8000px');
-          }
-          if(form1Data.amountOfBars >= 35) {
-            jQuery('#mainContainer').css('height', '15000px');
-          }
-          if(form1Data.amountOfBars >= 50) {
-            jQuery('#mainContainer').css('height', '25000px');
-          }
+      if (form1Data.amountOfBars >= 7){
+        jQuery('#mainContainer').css('height', '650px');
+      }
+      if(form1Data.amountOfBars >= 11) {
+        jQuery('#mainContainer').css('height', '2000px');
+      }
+      if(form1Data.amountOfBars >= 25) {
+        jQuery('#mainContainer').css('height', '8000px');
+      }
+      if(form1Data.amountOfBars >= 35) {
+        jQuery('#mainContainer').css('height', '15000px');
+      }
+      if(form1Data.amountOfBars >= 50) {
+        jQuery('#mainContainer').css('height', '25000px');
+      }
 
     }
   }
   else { // Y Axis
+
+    // Fixme: Consider complete rewrite of this section and refactor the rest
     for (let i = 0; i < form1Data.amountOfBars; i++) {
 
       console.log('drawing bar Y chart');
@@ -99,42 +114,29 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
       const hr100Pos = barHeight / 2;
       const tickLab100Pos = hr100Pos - 15;
 
-      // Include Ticks into the bar
-      $(elementHtmlSelector).append(`
-          <div style="background-color:${barColour}; width:${barWidth}; margin-right: ${barSpacing}; " class="bar${i} barEl">
-          <!-- INSERT TICKS INTO THE BAR 
-            <hr class="hr25 barYTick" style="top:${hr25Pos}"> <p class="tickLabel" style="top:${tickLab25Pos}">25%</p>
-            <hr class="hr50 barYTick" style="top:${hr50Pos}"> <p class="tickLabel" style="top:${tickLab50Pos}">50%</p> 
-            <hr class="hr75 barYTick" style="top: ${hr75Pos}"> <p class="tickLabel" style="top:${tickLab75Pos}">75%</p> 
-            <hr class="hr100 barYTick" style="top: ${hr100Pos};"> <p class="tickLabel" style="top: ${tickLab100Pos}">100%</p>-->
-            
-            <div class="h4D25" style="top: ${hr25Pos}; background-color: green; width: 100%; height:30px"></div>
-         </div>
-      `);
-
       jQuery('.barEl').css('display','inline-block');
       // Change width after so that the css transition effect will take effect
-      jQuery(`.bar${i}`).css('height', barHeight);
+      // jQuery(`.bar${i}`).css('height', barHeight);
 
-      // Media Query hack
-              if (form1Data.amountOfBars >= 3) {
-          jQuery('#mainContainer').css('height', '1306px');
-        }
-        if (form1Data.amountOfBars >= 7) {
-          jQuery('#mainContainer').css('height', '1500px');
-        }
-        if (form1Data.amountOfBars >= 11) {
-          jQuery('#mainContainer').css('height', '2000px');
-        }
-        if (form1Data.amountOfBars >= 25) {
-          jQuery('#mainContainer').css('height', '8000px');
-        }
-        if (form1Data.amountOfBars >= 35) {
-          jQuery('#mainContainer').css('height', '15000px');
-        }
-        if (form1Data.amountOfBars >= 50) {
-          jQuery('#mainContainer').css('height', '25000px');
-        }
+      // Media Query hack for container
+      if (form1Data.amountOfBars >= 3) {
+        jQuery('#mainContainer').css('height', '1306px');
+      }
+      if (form1Data.amountOfBars >= 7) {
+        jQuery('#mainContainer').css('height', '1500px');
+      }
+      if (form1Data.amountOfBars >= 11) {
+        jQuery('#mainContainer').css('height', '2000px');
+      }
+      if (form1Data.amountOfBars >= 25) {
+        jQuery('#mainContainer').css('height', '8000px');
+      }
+      if (form1Data.amountOfBars >= 35) {
+        jQuery('#mainContainer').css('height', '15000px');
+      }
+      if (form1Data.amountOfBars >= 50) {
+        jQuery('#mainContainer').css('height', '25000px');
+      }
 
     }
   }
@@ -174,38 +176,44 @@ function onTitleSettingsClick(){
   $('#titleConfigContainer').css('display','inline-block');
 }
 
+// onAmountOfBarsFormSubmit()
+// Form1
 function onForm1Submit() {
-    var amountOfBars = jQuery('form#form1 input')[0].value;
-    form1Data.amountOfBars = amountOfBars;
+  var amountOfBars = jQuery('form#form1 input')[0].value;
+  form1Data.amountOfBars = amountOfBars;
 
-    // Hide first form and create the next one
-    $('form#form1').css('display', 'none');
+  // Hide first form and create the next one
+  $('form#form1').css('display', 'none');
 
-    form1Data.amount = amountOfBars;
-    createForm('form2', amountOfBars);
+  form1Data.amount = amountOfBars;
+  createForm('form2', amountOfBars);
 }
 
+// onValuesFormSubmit()
+// Form2
 function onForm2Submit() {
   console.log('form 2 submit');
 
-    var form2Input = $('#form2 input');
+  var form2Input = $('#form2 input');
 
-    for (var i = 0; i < form2Input.length ; i++) {
-      var inputValue = form2Input[i].value;
-      form2Data.push(inputValue);
-    }
+  for (var i = 0; i < form2Input.length ; i++) {
+    var inputValue = form2Input[i].value;
+    form2Data.push(inputValue);
+  }
 
-    //Hide form2 and create new one
-    $('#form2').css('display','none');
-    createForm('form3', form1Data.amount)
+  //Hide form2 and create new one
+  $('#form2').css('display','none');
+  createForm('form3', form1Data.amount)
 }
 
+// onConfigsFormSubmit()
+// Form3
 function onForm3Submit() {
   console.log('form 3 submit');
-    var barListItems = jQuery('#form3 li input');
-    //Get the axis
-   formChartAxis = jQuery('select')[0].value;
-    // Preset the object with input class as ids
+  var barListItems = jQuery('#form3 li input');
+  //Get the axis
+  formChartAxis = jQuery('select')[0].value;
+  // Preset the object with input class as ids
   for(i=0; i< barListItems.length; i++) {
     var el = barListItems[i];
     form3Data[el.className] = {};
@@ -215,28 +223,30 @@ function onForm3Submit() {
     var propertyName = el.name;
     var propertyValue = el.value;
 
-      if (el.name ==='barColour'){
-        form3Data[el.className][propertyName] = propertyValue;
-      }
+    if (el.name ==='barColour'){
+      form3Data[el.className][propertyName] = propertyValue;
+    }
 
-      if (el.name === 'labelColour') {
-        form3Data[el.className][propertyName] = propertyValue;
-      }
+    if (el.name === 'labelColour') {
+      form3Data[el.className][propertyName] = propertyValue;
+    }
 
-      if (el.name === 'barSpacing') {
-        form3Data[el.className][propertyName] = propertyValue;
-      }
+    if (el.name === 'barSpacing') {
+      form3Data[el.className][propertyName] = propertyValue;
+    }
 
-      if (el.name === 'labelPosition') {
-        form3Data[el.className][propertyName] = propertyValue;
-      }
-      console.log(form3Data, 'form3Data');
+    if (el.name === 'labelPosition') {
+      form3Data[el.className][propertyName] = propertyValue;
+    }
+    console.log(form3Data, 'form3Data');
   }
-    //Hide form2 and create new one
-    $('#form3').css('display','none');
-    createForm('form4', form1Data.amount)
+  //Hide form2 and create new one
+  $('#form3').css('display','none');
+  createForm('form4', form1Data.amount)
 }
 
+// onElementSelectorFormSubmit()
+// Form4
 function onForm4Submit(){
   var htmlElementSelector = jQuery('#elementInput')[0].value;
   form4Data = htmlElementSelector;

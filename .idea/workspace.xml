@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e480b2c5-4f71-4b29-a7fe-cfa4c3f0fdd8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bar-module.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/barForm.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/references.md" beforeDir="false" afterPath="$PROJECT_DIR$/references.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,38 +20,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-              <folding>
-                <marker date="1544055964270" expanded="false" signature="656:1603" ph="..." />
-                <marker date="1544055964270" expanded="false" signature="1643:1688" ph="..." />
-                <marker date="1544055964270" expanded="false" signature="1699:1808" ph="..." />
-              </folding>
+            <state relative-caret-position="406">
+              <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-end-line="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
+            <state relative-caret-position="72">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding>
-                <marker date="1544498907593" expanded="false" signature="4535:5218" ph="..." />
-                <marker date="1544498907593" expanded="false" signature="11571:12596" ph="..." />
+                <marker date="1544514035436" expanded="false" signature="10794:11819" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1196">
-              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -91,10 +73,10 @@
         <option value="$PROJECT_DIR$/notes-useful-snippets.md" />
         <option value="$PROJECT_DIR$/js/bar-module.js" />
         <option value="$PROJECT_DIR$/js/barForm.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/notes.md" />
         <option value="$PROJECT_DIR$/references.md" />
         <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
@@ -105,10 +87,10 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1152" />
-    <option name="height" value="877" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
+    <option name="width" value="1413" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -120,12 +102,12 @@
         <subPane>
           <expand>
             <path>
-              <item name="barChartPrepStretch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="barChartPrepStretch" type="462c0819:PsiDirectoryNode" />
+              <item name="barchart_prep_stretch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="barchart_prep_stretch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="barChartPrepStretch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="barChartPrepStretch" type="462c0819:PsiDirectoryNode" />
+              <item name="barchart_prep_stretch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="barchart_prep_stretch" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -190,24 +172,26 @@
       <workItem from="1543963488519" duration="8811000" />
       <workItem from="1544497393397" duration="1114000" />
       <workItem from="1544500545940" duration="117000" />
+      <workItem from="1544513418613" duration="617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51527000" />
+    <option name="totallyTimeSpent" value="52512000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="23" width="1152" height="877" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.20946626" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.184" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info active="true" id="Terminal" order="4" visible="true" weight="0.4305924" />
+      <window_info id="Terminal" order="4" weight="0.56290907" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290653" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32808718" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.20254506" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997879" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -242,17 +226,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/main.js</url>
-          <line>80</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/nodemon.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -279,9 +252,7 @@
     <entry file="file://$PROJECT_DIR$/notes.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="621">
-            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          </first_editor>
+          <first_editor />
           <second_editor />
         </state>
       </provider>
@@ -296,39 +267,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../w3d1/tweeter/public/styles/new-tweet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../w3d1/tweeter/public/styles/new-tweet.css" />
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
-          <folding>
-            <marker date="1544498907593" expanded="false" signature="4535:5218" ph="..." />
-            <marker date="1544498907593" expanded="false" signature="11571:12596" ph="..." />
-          </folding>
+        <state relative-caret-position="552">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        <state relative-caret-position="406">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding>
-            <marker date="1544055964270" expanded="false" signature="656:1603" ph="..." />
-            <marker date="1544055964270" expanded="false" signature="1643:1688" ph="..." />
-            <marker date="1544055964270" expanded="false" signature="1699:1808" ph="..." />
+            <marker date="1544514035436" expanded="false" signature="10794:11819" ph="..." />
           </folding>
         </state>
       </provider>
