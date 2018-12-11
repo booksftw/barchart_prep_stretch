@@ -8,12 +8,12 @@ div#mainContainer{
   background-color:whitesmoke;
   border: 1px solid black;
  /*opacity: 0.2;*/
-  width:100%;
+  width:95%;
   height: 620px;
   z-index: -1000;
   position: relative;
   -webkit-transition: width 2s; /* Safari */
-
+  margin: auto;
 }
 
 div.bar{
@@ -28,12 +28,12 @@ div.bar{
 }
 
 .barEl {
-  background-color: hotpink;
-  margin-bottom:10px;
+  /*background-color: hotpink;*/
+  /*margin-bottom:10px;*/
   transition-property: width,height;
   transition-duration: 3s;
-  width:10px;
-  height:5px;
+  width:0px;
+  height:0px;
 
 }
 
@@ -65,4 +65,20 @@ p.labelTag {
   position: absolute;
   top: 10;
   right: 10;
+}
+
+.barYTick{
+  margin:0;
+  position:relative;
+}
+
+p.tickLabel{
+  margin:0;
+  color:silver;
+  /*position:relative;*/
+}
+#barFormContainer button {
+  position:relative;
+  margin-left:10px;
+  margin-bottom:10px;
 }

@@ -78,25 +78,37 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
 
     }
   }
-  else {
-    // Y Axis
+  else { // Y Axis
     for (let i = 0; i < form1Data.amountOfBars; i++) {
 
-      console.log('drawing bar chart');
-      console.log(dataArray);
-      var barValue = dataArray[i]; // needs to be updated to be more specific
-      var barWidth = 20//dataArray[i] * 600;
-      var barHeight = 150//form1Data.amountOfBars * 8;
+      console.log('drawing bar Y chart');
+      console.log(dataArray[i]);
+      // var barValue = dataArray[i]; // needs to be updated to be more specific
+      var barWidth = dataArray[i] * 10;
+      var barHeight = form2Data[i] * 25;
       var barSpacing = form3Data['bar' + i].barSpacing;
       var barColour = form3Data['bar' + i].barColour;
 
+      console.log(barHeight, 'Bar Height');
+      const hr25Pos =  barHeight / 4;
+      const tickLab25Pos = hr25Pos - 13;
+      const hr50Pos =  barHeight / 2;
+      const tickLab50Pos = hr50Pos - 13;
+      const hr75Pos = barHeight/2 * 0.75;
+      const tickLab75Pos = hr75Pos -13;
+      const hr100Pos = barHeight / 2;
+      const tickLab100Pos = hr100Pos - 15;
+
       // Include Ticks into the bar
-
-
       $(elementHtmlSelector).append(`
           <div style="background-color:${barColour}; width:${barWidth}; margin-right: ${barSpacing}; " class="bar${i} barEl">
-          <!-- INSERT TICKS INTO THE BAR -->
-          <hr class="hr">
+          <!-- INSERT TICKS INTO THE BAR 
+            <hr class="hr25 barYTick" style="top:${hr25Pos}"> <p class="tickLabel" style="top:${tickLab25Pos}">25%</p>
+            <hr class="hr50 barYTick" style="top:${hr50Pos}"> <p class="tickLabel" style="top:${tickLab50Pos}">50%</p> 
+            <hr class="hr75 barYTick" style="top: ${hr75Pos}"> <p class="tickLabel" style="top:${tickLab75Pos}">75%</p> 
+            <hr class="hr100 barYTick" style="top: ${hr100Pos};"> <p class="tickLabel" style="top: ${tickLab100Pos}">100%</p>-->
+            
+            <div class="h4D25" style="top: ${hr25Pos}; background-color: green; width: 100%; height:30px"></div>
          </div>
       `);
 
@@ -105,25 +117,27 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
       jQuery(`.bar${i}`).css('height', barHeight);
 
       // Media Query hack
-      if (form1Data.amountOfBars >= 7) {
-        jQuery('#mainContainer').css('height', '650px');
-      }
-      if (form1Data.amountOfBars >= 11) {
-        jQuery('#mainContainer').css('height', '2000px');
-      }
-      if (form1Data.amountOfBars >= 25) {
-        jQuery('#mainContainer').css('height', '8000px');
-      }
-      if (form1Data.amountOfBars >= 35) {
-        jQuery('#mainContainer').css('height', '15000px');
-      }
-      if (form1Data.amountOfBars >= 50) {
-        jQuery('#mainContainer').css('height', '25000px');
-      }
+              if (form1Data.amountOfBars >= 3) {
+          jQuery('#mainContainer').css('height', '1306px');
+        }
+        if (form1Data.amountOfBars >= 7) {
+          jQuery('#mainContainer').css('height', '1500px');
+        }
+        if (form1Data.amountOfBars >= 11) {
+          jQuery('#mainContainer').css('height', '2000px');
+        }
+        if (form1Data.amountOfBars >= 25) {
+          jQuery('#mainContainer').css('height', '8000px');
+        }
+        if (form1Data.amountOfBars >= 35) {
+          jQuery('#mainContainer').css('height', '15000px');
+        }
+        if (form1Data.amountOfBars >= 50) {
+          jQuery('#mainContainer').css('height', '25000px');
+        }
+
     }
   }
-
-
 }
 
 // Refactor drawBarChart by using this and passing it parameters
@@ -146,7 +160,6 @@ function onUpdateTitle(){
 }
 
 function onTitleSettingsClick(){
-
   $('#titleConfigContainer').html(`
       <form id="configureTitleForm">
          Select your font size<br>
@@ -162,7 +175,6 @@ function onTitleSettingsClick(){
 }
 
 function onForm1Submit() {
-
     var amountOfBars = jQuery('form#form1 input')[0].value;
     form1Data.amountOfBars = amountOfBars;
 
@@ -191,11 +203,8 @@ function onForm2Submit() {
 function onForm3Submit() {
   console.log('form 3 submit');
     var barListItems = jQuery('#form3 li input');
-
     //Get the axis
    formChartAxis = jQuery('select')[0].value;
-
-
     // Preset the object with input class as ids
   for(i=0; i< barListItems.length; i++) {
     var el = barListItems[i];
@@ -222,21 +231,15 @@ function onForm3Submit() {
         form3Data[el.className][propertyName] = propertyValue;
       }
       console.log(form3Data, 'form3Data');
-
   }
     //Hide form2 and create new one
     $('#form3').css('display','none');
-
     createForm('form4', form1Data.amount)
 }
 
 function onForm4Submit(){
-
-  // var htmlElementSelector = jQuery('input')[0].value;
   var htmlElementSelector = jQuery('#elementInput')[0].value;
   form4Data = htmlElementSelector;
-
-
   // //Hide form2 and create new one
   $('#form4').css('display','none');
   $('#barFormContainer').append(`<button > <a href="/">Reset</a>  </button>`)
@@ -244,9 +247,8 @@ function onForm4Submit(){
   drawBarChart(form2Data, form3Data, form4Data);
 }
 
-// Instead form1,2,3, name variables based functionality.
+// Todo: Instead form1,2,3, name variables based functionality.
 function createAmountForm() {
-
   $('#barFormContainer').html(`
       <form id="form1">
          How many bars?<br>
@@ -259,7 +261,6 @@ function createAmountForm() {
 
 function createValuesForm(args) {
   let amountOfBars = args;
-
   // Open tag
   $('#barFormContainer').html(`
       <div id="form2">
@@ -270,7 +271,6 @@ function createValuesForm(args) {
   for (let i = 0; i < amountOfBars; i++) {
     // Dynamically create second form
     $('#form2').append(`
-     
         <!--Enter Values by Bar: <br>-->
         bar ${i}:
         <input type="number" name="bar" placeholder="1" value =1>
@@ -278,7 +278,6 @@ function createValuesForm(args) {
 
     $('#form2').css('display', 'inline-block');
   }
-
   // Close tag
   $('#form2').append(`
      <button type="button" onclick="onForm2Submit()">Submit</button>
@@ -288,9 +287,8 @@ function createValuesForm(args) {
 }
 
 function createConfigForm(args) {
-  $('#form3').css('display', 'inline-block');
-
   let amountOfBars = args;
+  $('#form3').css('display', 'inline-block');
 
   // Open tag
   $('#barFormContainer').html(`
@@ -344,7 +342,6 @@ function createHtmlElementForm(){
          <button type="button" onclick="onForm4Submit()">Make my chart!</button>
       </form>
   `);
-  console.log('Generating the amount form');
 }
 
 function createForm(name, args) {

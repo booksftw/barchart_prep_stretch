@@ -36,3 +36,6 @@ Customizable label colours
 # App Future Improvements
 - Put limtis on configs
 - change some configs to select
+
+# Bar Y Ticks Solution Ideas
+* Try setting the bar to absolute and positioniing them and the ticks to relative. Then you can use percentages.
