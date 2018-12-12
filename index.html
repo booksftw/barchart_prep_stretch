@@ -1,14 +1,31 @@
+<html>
 <head>
-  <script src="js/main.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+
 </head>
 <body>
-  <h1>Hello</h1>
-  <div id="mainContainer">
-    <div class="bar"> </div>
 
-  </div>
+<input type="text" id="title" name="title" required
+       minlength="1" maxlength="18" size="10" placeholder="Title Me :-)">
+<img id="titleConfigIcon" src="./assets/settings-icon.png" width="50" height="50" onclick="onTitleSettingsClick()">
 
-</body>
+<div id="titleConfigContainer"></div>
 
+<div id="barFormContainer">
+  <button onclick="onStart()">Click me to start</button>
+</div>
+
+<div id="mainContainer">
+  <!--static demo <div class="bar"> </div>-->
+
+</div>
+<!--<button onclick="testAddBarGraph()">Add bar test with dummy data</button> debugging remove after dev-->
 <footer></footer>
+<script src="js/main.js"></script>
+</body>
+</html>
+

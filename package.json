@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "prep course strech project",
   "devDependencies": {
+    "babel": "^6.23.0",
     "eslint": "^3.19.0",
     "eslint-config-lighthouselabs": "github:lighthouse-labs/eslint-config-lighthouselabs"
   },
@@ -20,7 +21,5 @@
     "url": "https://github.com/booksftw/barchart_prep_stretch/issues"
   },
   "homepage": "https://github.com/booksftw/barchart_prep_stretch#readme",
-  "dependencies": {
-    "jquery": "^3.3.1"
-  }
+  "dependencies": {}
 }
