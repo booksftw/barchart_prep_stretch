@@ -1,10 +1,3 @@
-//
-// function myFunc(str){
-//   console.log(str + 'Jarvis');
-//   // Create bar
-//   var bar = document.createElement("bar");
-//   document.body.appendChild(bar);
-// }
 
 /*
   JS Destructuring Syntax
@@ -25,7 +18,7 @@ let state = {
 //
 //Amount of bars
 form1Data = {
-  amountOfBars:0
+  amountOfBars: 0
 };
 // Values
 form2Data = [];
@@ -38,29 +31,33 @@ var formChartAxis = 'chartX'; // defaault value
 // Element Selector
 var form4Data = '#mainContainer';
 
-function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
+function drawBarChart(dataArray, optionsObject, elementHtmlSelector) {
 
   var barAxis = formChartAxis;
   console.log(barAxis, 'barAxis');
   // IF X make a horizontal bar chart if Y make a vertical
 
-  if (barAxis == 'chartX'){
+  if (barAxis == 'chartX') {
     for (let i = 0; i < form1Data.amountOfBars; i++) {
       console.log('drawing bar X chart');
       console.log(dataArray);
       var barValue = dataArray[i]; // needs to be updated to be more specific
       var barWidth = dataArray[i] * 60;
       var barHeight = form1Data.amountOfBars * 8;
-      var barSpacing = form3Data['bar'+i].barSpacing;
-      var barColour = form3Data['bar'+i].barColour;
-      var labelColour = form3Data['bar'+i].labelColour;
-      var labelPosValue = form3Data['bar'+i].labelPosition;
+      var barSpacing = form3Data['bar' + i].barSpacing;
+      var barColour = form3Data['bar' + i].barColour;
+      var labelColour = form3Data['bar' + i].labelColour;
+      var labelPosValue = form3Data['bar' + i].labelPosition;
 
       var labelTopValue;
       //  A more accurate approach is to grab the element figure out it's height and divide in half and full
-      if (labelPosValue === 'top') { labelTopValue = 0; }
-      else if (labelPosValue  === 'middle') { labelTopValue = 42 }
-      else if (labelPosValue === 'bottom') { labelTopValue = 84 }
+      if (labelPosValue === 'top') {
+        labelTopValue = 0;
+      } else if (labelPosValue === 'middle') {
+        labelTopValue = 42
+      } else if (labelPosValue === 'bottom') {
+        labelTopValue = 84
+      }
       // var labelPosition = form3Data['bar'+i].labelPosition;
 
       $(elementHtmlSelector).append(`
@@ -73,25 +70,24 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
       jQuery(`.bar${i}`).css('width', barWidth);
 
       // Media Query hack
-      if (form1Data.amountOfBars >= 7){
+      if (form1Data.amountOfBars >= 7) {
         jQuery('#mainContainer').css('height', '650px');
       }
-      if(form1Data.amountOfBars >= 11) {
+      if (form1Data.amountOfBars >= 11) {
         jQuery('#mainContainer').css('height', '2000px');
       }
-      if(form1Data.amountOfBars >= 25) {
+      if (form1Data.amountOfBars >= 25) {
         jQuery('#mainContainer').css('height', '8000px');
       }
-      if(form1Data.amountOfBars >= 35) {
+      if (form1Data.amountOfBars >= 35) {
         jQuery('#mainContainer').css('height', '15000px');
       }
-      if(form1Data.amountOfBars >= 50) {
+      if (form1Data.amountOfBars >= 50) {
         jQuery('#mainContainer').css('height', '25000px');
       }
 
     }
-  }
-  else { // Y Axis
+  } else { // Y Axis
 
     // Fixme: Consider complete rewrite of this section and refactor the rest
     for (let i = 0; i < form1Data.amountOfBars; i++) {
@@ -105,16 +101,16 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
       var barColour = form3Data['bar' + i].barColour;
 
       console.log(barHeight, 'Bar Height');
-      const hr25Pos =  barHeight / 4;
+      const hr25Pos = barHeight / 4;
       const tickLab25Pos = hr25Pos - 13;
-      const hr50Pos =  barHeight / 2;
+      const hr50Pos = barHeight / 2;
       const tickLab50Pos = hr50Pos - 13;
-      const hr75Pos = barHeight/2 * 0.75;
-      const tickLab75Pos = hr75Pos -13;
+      const hr75Pos = barHeight / 2 * 0.75;
+      const tickLab75Pos = hr75Pos - 13;
       const hr100Pos = barHeight / 2;
       const tickLab100Pos = hr100Pos - 15;
 
-      jQuery('.barEl').css('display','inline-block');
+      jQuery('.barEl').css('display', 'inline-block');
       // Change width after so that the css transition effect will take effect
       // jQuery(`.bar${i}`).css('height', barHeight);
 
@@ -143,11 +139,11 @@ function drawBarChart(dataArray, optionsObject, elementHtmlSelector ){
 }
 
 // Refactor drawBarChart by using this and passing it parameters
-function drawBar(){
+function drawBar() {
 
 }
 
-function onUpdateTitle(){
+function onUpdateTitle() {
   // Change the title settings
   var title = jQuery('input#title');
   // css('font-size',10)
@@ -161,7 +157,7 @@ function onUpdateTitle(){
   jQuery('#titleConfigContainer').css('display', 'none');
 }
 
-function onTitleSettingsClick(){
+function onTitleSettingsClick() {
   $('#titleConfigContainer').html(`
       <form id="configureTitleForm">
          Select your font size<br>
@@ -173,7 +169,7 @@ function onTitleSettingsClick(){
   `);
 
   $('#titleConfigIcon').css('display', 'none');
-  $('#titleConfigContainer').css('display','inline-block');
+  $('#titleConfigContainer').css('display', 'inline-block');
 }
 
 // onAmountOfBarsFormSubmit()
@@ -196,13 +192,13 @@ function onForm2Submit() {
 
   var form2Input = $('#form2 input');
 
-  for (var i = 0; i < form2Input.length ; i++) {
+  for (var i = 0; i < form2Input.length; i++) {
     var inputValue = form2Input[i].value;
     form2Data.push(inputValue);
   }
 
   //Hide form2 and create new one
-  $('#form2').css('display','none');
+  $('#form2').css('display', 'none');
   createForm('form3', form1Data.amount)
 }
 
@@ -214,16 +210,16 @@ function onForm3Submit() {
   //Get the axis
   formChartAxis = jQuery('select')[0].value;
   // Preset the object with input class as ids
-  for(i=0; i< barListItems.length; i++) {
+  for (i = 0; i < barListItems.length; i++) {
     var el = barListItems[i];
     form3Data[el.className] = {};
   }
-  for(i=0; i< barListItems.length; i++) {
+  for (i = 0; i < barListItems.length; i++) {
     var el = barListItems[i];
     var propertyName = el.name;
     var propertyValue = el.value;
 
-    if (el.name ==='barColour'){
+    if (el.name === 'barColour') {
       form3Data[el.className][propertyName] = propertyValue;
     }
 
@@ -241,17 +237,17 @@ function onForm3Submit() {
     console.log(form3Data, 'form3Data');
   }
   //Hide form2 and create new one
-  $('#form3').css('display','none');
+  $('#form3').css('display', 'none');
   createForm('form4', form1Data.amount)
 }
 
 // onElementSelectorFormSubmit()
 // Form4
-function onForm4Submit(){
+function onForm4Submit() {
   var htmlElementSelector = jQuery('#elementInput')[0].value;
   form4Data = htmlElementSelector;
   // //Hide form2 and create new one
-  $('#form4').css('display','none');
+  $('#form4').css('display', 'none');
   $('#barFormContainer').append(`<button > <a href="/">Reset</a>  </button>`)
   //Call function to make chart
   drawBarChart(form2Data, form3Data, form4Data);
@@ -344,7 +340,7 @@ function createConfigForm(args) {
      `)
 }
 
-function createHtmlElementForm(){
+function createHtmlElementForm() {
   $('#barFormContainer').html(`
       <form id="form4">
          Which HTML Element do you want to insert this into?<br>
@@ -359,7 +355,7 @@ function createForm(name, args) {
   //
   if (name === 'form2') {
     createValuesForm(args);
-  }// close form 2
+  } // close form 2
 
   if (name === 'form3') {
     createConfigForm(args);
@@ -409,9 +405,6 @@ function createForm(name, args) {
 //   // testAddBarGraph()
 // });
 
-function onStart(){
+function onStart() {
   createAmountForm();
 }
-
-
-

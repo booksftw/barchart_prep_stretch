@@ -12,6 +12,7 @@ div#mainContainer{
   height: 620px;
   z-index: -1000;
   position: relative;
+  transition: width 2s;
   -webkit-transition: width 2s; /* Safari */
   margin: auto;
 }
